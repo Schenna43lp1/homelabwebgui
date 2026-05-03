@@ -1,0 +1,335 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <title>DNS Records - home.app</title>
+    <style>
+        body {
+            font-family: Segoe UI, Arial, Helvetica, sans-serif;
+            margin: 24px;
+            color: #111
+        }
+
+        h1 {
+            font-size: 1.25rem;
+            margin-bottom: 0.5rem
+        }
+
+        table {
+            border-collapse: collapse;
+            width: 100%;
+            max-width: 980px;
+            margin: 12px 0
+        }
+
+        th,
+        td {
+            border: 1px solid #ddd;
+            padding: 8px;
+            text-align: left
+        }
+
+        th {
+            background: #f4f4f4
+        }
+
+        pre {
+            background: #0b0b0b;
+            color: #e6e6e6;
+            padding: 12px;
+            overflow: auto;
+            max-width: 980px
+        }
+
+        .controls {
+            margin: 8px 0
+        }
+
+        button {
+            padding: 6px 10px;
+            border-radius: 4px;
+            border: 1px solid #888;
+            background: #fff;
+            cursor: pointer
+        }
+
+        button:active {
+            transform: translateY(1px)
+        }
+    </style>
+</head>
+
+<body>
+    <main>
+        <h1>DNS Zone Records for <code>home.app</code></h1>
+        <p>Formatted list of A, NS and SOA records. Use the raw block below to copy the zone file text.</p>
+
+        <table aria-label="DNS records table">
+            <thead>
+                <tr>
+                    <th>Name</th>
+                    <th>TTL</th>
+                    <th>Class</th>
+                    <th>Type</th>
+                    <th>Value</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>authentik.home.app</td>
+                    <td>300</td>
+                    <td>IN</td>
+                    <td>A</td>
+                    <td>192.168.1.71</td>
+                </tr>
+                <tr>
+                    <td>docker01.home.app</td>
+                    <td>300</td>
+                    <td>IN</td>
+                    <td>A</td>
+                    <td>192.168.1.45</td>
+                </tr>
+                <tr>
+                    <td>git.home.app</td>
+                    <td>300</td>
+                    <td>IN</td>
+                    <td>A</td>
+                    <td>192.168.1.31</td>
+                </tr>
+                <tr>
+                    <td>glpi.home.app</td>
+                    <td>300</td>
+                    <td>IN</td>
+                    <td>A</td>
+                    <td>192.168.1.21</td>
+                </tr>
+                <tr>
+                    <td>home.app</td>
+                    <td>3600</td>
+                    <td>IN</td>
+                    <td>NS</td>
+                    <td>ns1.home.app.</td>
+                </tr>
+                <tr>
+                    <td>home.app</td>
+                    <td>3600</td>
+                    <td>IN</td>
+                    <td>NS</td>
+                    <td>ns2.home.app.</td>
+                </tr>
+                <tr>
+                    <td>home.app</td>
+                    <td>3600</td>
+                    <td>IN</td>
+                    <td>SOA</td>
+                    <td>a.misconfigured.dns.server.invalid hostmaster.home.app 2026042808 10800 3600 604800 3600</td>
+                </tr>
+                <tr>
+                    <td>homelabwebgui.home.app</td>
+                    <td>300</td>
+                    <td>IN</td>
+                    <td>A</td>
+                    <td>192.168.1.45</td>
+                </tr>
+                <tr>
+                    <td>ipam.home.app</td>
+                    <td>300</td>
+                    <td>IN</td>
+                    <td>A</td>
+                    <td>192.168.1.45</td>
+                </tr>
+                <tr>
+                    <td>mariadb.home.app</td>
+                    <td>300</td>
+                    <td>IN</td>
+                    <td>A</td>
+                    <td>192.168.1.26</td>
+                </tr>
+                <tr>
+                    <td>mariadb01.home.app</td>
+                    <td>300</td>
+                    <td>IN</td>
+                    <td>A</td>
+                    <td>192.168.1.60</td>
+                </tr>
+                <tr>
+                    <td>mariadb02.home.app</td>
+                    <td>300</td>
+                    <td>IN</td>
+                    <td>A</td>
+                    <td>192.168.1.61</td>
+                </tr>
+                <tr>
+                    <td>mariadb03.home.app</td>
+                    <td>300</td>
+                    <td>IN</td>
+                    <td>A</td>
+                    <td>192.168.1.62</td>
+                </tr>
+                <tr>
+                    <td>netbox.home.app</td>
+                    <td>300</td>
+                    <td>IN</td>
+                    <td>A</td>
+                    <td>192.168.1.25</td>
+                </tr>
+                <tr>
+                    <td>ns1.home.app</td>
+                    <td>300</td>
+                    <td>IN</td>
+                    <td>A</td>
+                    <td>192.168.1.9</td>
+                </tr>
+                <tr>
+                    <td>ns2.home.app</td>
+                    <td>300</td>
+                    <td>IN</td>
+                    <td>A</td>
+                    <td>192.168.1.8</td>
+                </tr>
+                <tr>
+                    <td>observium.home.app</td>
+                    <td>300</td>
+                    <td>IN</td>
+                    <td>A</td>
+                    <td>192.168.1.215</td>
+                </tr>
+                <tr>
+                    <td>omada.home.app</td>
+                    <td>300</td>
+                    <td>IN</td>
+                    <td>A</td>
+                    <td>192.168.1.189</td>
+                </tr>
+                <tr>
+                    <td>pbs.home.app</td>
+                    <td>300</td>
+                    <td>IN</td>
+                    <td>A</td>
+                    <td>192.168.1.19</td>
+                </tr>
+                <tr>
+                    <td>phpipam.home.app</td>
+                    <td>300</td>
+                    <td>IN</td>
+                    <td>A</td>
+                    <td>192.168.1.22</td>
+                </tr>
+                <tr>
+                    <td>proxy.home.app</td>
+                    <td>300</td>
+                    <td>IN</td>
+                    <td>A</td>
+                    <td>192.168.1.26</td>
+                </tr>
+                <tr>
+                    <td>proxy01.home.app</td>
+                    <td>300</td>
+                    <td>IN</td>
+                    <td>A</td>
+                    <td>192.168.1.23</td>
+                </tr>
+                <tr>
+                    <td>proxy02.home.app</td>
+                    <td>300</td>
+                    <td>IN</td>
+                    <td>A</td>
+                    <td>192.168.1.24</td>
+                </tr>
+                <tr>
+                    <td>pve01.home.app</td>
+                    <td>300</td>
+                    <td>IN</td>
+                    <td>A</td>
+                    <td>192.168.1.11</td>
+                </tr>
+                <tr>
+                    <td>pve02.home.app</td>
+                    <td>300</td>
+                    <td>IN</td>
+                    <td>A</td>
+                    <td>192.168.1.12</td>
+                </tr>
+                <tr>
+                    <td>pve03.home.app</td>
+                    <td>300</td>
+                    <td>IN</td>
+                    <td>A</td>
+                    <td>192.168.1.13</td>
+                </tr>
+                <tr>
+                    <td>semaphore.home.app</td>
+                    <td>300</td>
+                    <td>IN</td>
+                    <td>A</td>
+                    <td>192.168.1.44</td>
+                </tr>
+                <tr>
+                    <td>vpn.home.app</td>
+                    <td>300</td>
+                    <td>IN</td>
+                    <td>A</td>
+                    <td>192.168.1.222</td>
+                </tr>
+                <tr>
+                    <td>web-home.home.app</td>
+                    <td>300</td>
+                    <td>IN</td>
+                    <td>A</td>
+                    <td>192.168.1.30</td>
+                </tr>
+            </tbody>
+        </table>
+
+        <div class="controls">
+            <button id="copyBtn">Copy raw zone text</button>
+        </div>
+
+        <pre id="rawZone">authentik.home.app      300     IN      A       192.168.1.71
+docker01.home.app       300     IN      A       192.168.1.45
+git.home.app    300     IN      A       192.168.1.31
+glpi.home.app   300     IN      A       192.168.1.21
+home.app        3600    IN      NS      ns1.home.app.
+home.app        3600    IN      NS      ns2.home.app.
+home.app        3600    IN      SOA     a.misconfigured.dns.server.invalid hostmaster.home.app 2026042808 10800 3600 604800 3600
+homelabwebgui.home.app  300     IN      A       192.168.1.45
+ipam.home.app   300     IN      A       192.168.1.45
+mariadb.home.app        300     IN      A       192.168.1.26
+mariadb01.home.app      300     IN      A       192.168.1.60
+mariadb02.home.app      300     IN      A       192.168.1.61
+mariadb03.home.app      300     IN      A       192.168.1.62
+netbox.home.app 300     IN      A       192.168.1.25
+ns1.home.app    300     IN      A       192.168.1.9
+ns2.home.app    300     IN      A       192.168.1.8
+observium.home.app      300     IN      A       192.168.1.215
+omada.home.app  300     IN      A       192.168.1.189
+pbs.home.app    300     IN      A       192.168.1.19
+phpipam.home.app        300     IN      A       192.168.1.22
+proxy.home.app  300     IN      A       192.168.1.26
+proxy01.home.app        300     IN      A       192.168.1.23
+proxy02.home.app        300     IN      A       192.168.1.24
+pve01.home.app  300     IN      A       192.168.1.11
+pve02.home.app  300     IN      A       192.168.1.12
+pve03.home.app  300     IN      A       192.168.1.13
+semaphore.home.app      300     IN      A       192.168.1.44
+vpn.home.app    300     IN      A       192.168.1.222
+web-home.home.app       300     IN      A       192.168.1.30</pre>
+
+        <script>
+            document.getElementById('copyBtn').addEventListener('click', function () {
+                const text = document.getElementById('rawZone').innerText;
+                if (navigator.clipboard) {
+                    navigator.clipboard.writeText(text).then(() => { alert('Zone text copied to clipboard'); });
+                } else {
+                    // fallback
+                    const ta = document.createElement('textarea'); ta.value = text; document.body.appendChild(ta); ta.select(); try { document.execCommand('copy'); alert('Zone text copied to clipboard'); } catch (e) { alert('Copy failed'); } ta.remove();
+                }
+            });
+        </script>
+
+    </main>
+</body>
+
+</html>
