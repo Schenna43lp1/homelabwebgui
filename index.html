@@ -224,26 +224,97 @@
                 <h2 class="h3 fw-bold mb-1">Roadmap</h2>
                 <p class="text-body-secondary mb-0">Nächste sinnvolle Schritte für dein Homelab.</p>
             </div>
+            <section id="roadmap" class="mb-5">
+                <div class="mb-3">
+                    <h2 class="h3 fw-bold mb-1">Roadmap</h2>
+                    <p class="text-body-secondary mb-0">
+                        Nächste sinnvolle Schritte zur Bereinigung, Dokumentation und Stabilisierung deines Homelabs.
+                    </p>
+                </div>
+                <div class="list-group shadow-sm rounded-4 overflow-hidden">
 
-            <div class="list-group shadow-sm rounded-4 overflow-hidden">
-                <div class="list-group-item d-flex justify-content-between align-items-center">
-                    <span>PVE04 als Dev-Server einrichten</span>
-                    <span class="badge text-bg-warning">Next</span>
+                    <div class="list-group-item">
+                        <div class="d-flex justify-content-between align-items-center mb-2">
+                            <span class="fw-semibold">Phase 1: Kritische Basis bereinigen</span>
+                            <span class="badge text-bg-success">Fast fertig</span>
+                        </div>
+                        <ul class="mb-0 small text-body-secondary">
+                            <li>IP-Konflikt zwischen <code>nodjs-dev</code> und <code>mariadb02</code> behoben</li>
+                            <li>Neue IP von <code>nodjs-dev</code> dokumentiert</li>
+                            <li>MariaDB-Nodes geprüft</li>
+                            <li>Backup-Jobs für kritische Container geprüft</li>
+                        </ul>
+                    </div>
+
+                    <div class="list-group-item">
+                        <div class="d-flex justify-content-between align-items-center mb-2">
+                            <span class="fw-semibold">Phase 2: Container bereinigen</span>
+                            <span class="badge text-bg-warning">Next</span>
+                        </div>
+                        <ul class="mb-0 small text-body-secondary">
+                            <li><code>de</code> prüfen und sprechend umbenennen</li>
+                            <li>Gestoppte Container prüfen: <code>web01</code>, <code>nt-monitoring</code>,
+                                <code>minio</code></li>
+                            <li>Weitere Container prüfen: <code>apps01</code>, <code>test-db</code>,
+                                <code>proxy-wi-dev</code></li>
+                            <li>Entscheiden: behalten, löschen, dokumentieren oder umbenennen</li>
+                        </ul>
+                    </div>
+
+                    <div class="list-group-item">
+                        <div class="d-flex justify-content-between align-items-center mb-2">
+                            <span class="fw-semibold">Phase 3: NetBox abgleichen</span>
+                            <span class="badge text-bg-primary">IPAM</span>
+                        </div>
+                        <ul class="mb-0 small text-body-secondary">
+                            <li>NetBox mit aktuellem IP-Plan vergleichen</li>
+                            <li>Fehlende IPs ergänzen</li>
+                            <li>Veraltete Einträge markieren oder entfernen</li>
+                            <li>Container, VMs und Dienste korrekt zuordnen</li>
+                        </ul>
+                    </div>
+
+                    <div class="list-group-item">
+                        <div class="d-flex justify-content-between align-items-center mb-2">
+                            <span class="fw-semibold">Phase 4: Monitoring dokumentieren</span>
+                            <span class="badge text-bg-success">Monitoring</span>
+                        </div>
+                        <ul class="mb-0 small text-body-secondary">
+                            <li>Kritische Dienste definieren</li>
+                            <li>Monitoring-Check je Dienst dokumentieren</li>
+                            <li>Check-Typ eintragen: Ping, HTTP, TCP, DNS, SNMP oder DB</li>
+                            <li>Alarmierung dokumentieren: Telegram, E-Mail oder Discord</li>
+                        </ul>
+                    </div>
+
+                    <div class="list-group-item">
+                        <div class="d-flex justify-content-between align-items-center mb-2">
+                            <span class="fw-semibold">Phase 5: Doku aufräumen</span>
+                            <span class="badge text-bg-secondary">Docs</span>
+                        </div>
+                        <ul class="mb-0 small text-body-secondary">
+                            <li>Docker-Bridge-IPs aus der Hauptdoku entfernen</li>
+                            <li>Dienste mit URLs ergänzen</li>
+                            <li>Einheitliches Format für Dienst-Dokumentation verwenden</li>
+                            <li>Backup-Aufbewahrung je Dienst ist bereits dokumentiert</li>
+                        </ul>
+                    </div>
+
+                    <div class="list-group-item">
+                        <div class="d-flex justify-content-between align-items-center mb-2">
+                            <span class="fw-semibold">Phase 6: Diagramme ergänzen</span>
+                            <span class="badge text-bg-info">Visualisierung</span>
+                        </div>
+                        <ul class="mb-0 small text-body-secondary">
+                            <li>Netzwerkdiagramm ergänzen</li>
+                            <li>Mermaid-Diagramm im Repo erstellen</li>
+                            <li>Optional Screenshots wichtiger Dienste hinzufügen</li>
+                            <li>Service-Übersicht visuell verständlicher machen</li>
+                        </ul>
+                    </div>
+
                 </div>
-                <div class="list-group-item d-flex justify-content-between align-items-center">
-                    <span>DNS-Doku verbessern</span>
-                    <span class="badge text-bg-secondary">Docs</span>
-                </div>
-                <div class="list-group-item d-flex justify-content-between align-items-center">
-                    <span>Monitoring erweitern</span>
-                    <span class="badge text-bg-success">Monitoring</span>
-                </div>
-                <div class="list-group-item d-flex justify-content-between align-items-center">
-                    <span>Backup-Sync dokumentieren</span>
-                    <span class="badge text-bg-danger">Backup</span>
-                </div>
-            </div>
-        </section>
+            </section>
 
     </main>
 
