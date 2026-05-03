@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="de">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Markus Homelab</title>
+    <style>
+        body {
+            margin: 0;
+            font-family: Arial, sans-serif;
+            background: #0f172a;
+            color: #e5e7eb;
+            padding: 24px;
+        }
+
+        body.light {
+            background: #f8fafc;
+            color: #0f172a;
+        }
+
+        .card {
+            background: #111827;
+            border: 1px solid #1f2937;
+            border-radius: 14px;
+            padding: 16px;
+            margin: 12px 0;
+        }
+
+        body.light .card {
+            background: white;
+            border-color: #e2e8f0;
+        }
+
+        button,
+        input {
+            padding: 10px;
+            border-radius: 8px;
+            border: 1px solid #334155;
+            margin: 8px 0;
+        }
+    </style>
+</head>
+
+<body>
+    <h1>Markus Homelab</h1>
+    <p>Dashboard für Proxmox, Netzwerk, Services und Roadmap.</p>
+
+    <button id="themeToggle">Dark/Light Toggle</button>
+
+    <h2>Proxmox Nodes</h2>
+    <div class="card">pve01 – 192.168.1.11</div>
+    <div class="card">pve02 – 192.168.1.12</div>
+    <div class="card">pve03 – 192.168.1.13</div>
+    <div class="card">pve04 – geplant</div>
+
+    <h2>Services</h2>
+    <input id="searchInput" type="text" placeholder="Service suchen...">
+
+    <div id="services">
+        <div class="card">PBS – 192.168.1.19</div>
+        <div class="card">PowerDNS – 192.168.1.9</div>
+        <div class="card">DNS02 – 192.168.1.8</div>
+        <div class="card">Reverse Proxy – 192.168.1.22</div>
+        <div class="card">NetBox – 192.168.1.25</div>
+        <div class="card">Forgejo/Git – 192.168.1.31</div>
+        <div class="card">Docker01 – 192.168.1.45</div>
+        <div class="card">Omada – 192.168.1.189</div>
+        <div class="card">Observium – 192.168.1.215</div>
+    </div>
+
+    <h2>Roadmap</h2>
+    <div class="card">PVE04 als Dev-Server einrichten</div>
+    <div class="card">Forgejo Auto-Deploy</div>
+    <div class="card">Coolify testen</div>
+    <div class="card">DNS-Doku verbessern</div>
+    <div class="card">Monitoring erweitern</div>
+    <div class="card">Backup-Sync dokumentieren</div>
+
+    <script>
+        const toggle = document.getElementById("themeToggle");
+        const savedTheme = localStorage.getItem("theme");
+
+        if (savedTheme === "light") {
+            document.body.classList.add("light");
+        }
+
+        toggle.addEventListener("click", () => {
+            document.body.classList.toggle("light");
+            localStorage.setItem(
+                "theme",
+                document.body.classList.contains("light") ? "light" : "dark"
+            );
+        });
+
+        const searchInput = document.getElementById("searchInput");
+        const serviceCards = document.querySelectorAll("#services .card");
+
+        searchInput.addEventListener("input", () => {
+            const value = searchInput.value.toLowerCase();
+
+            serviceCards.forEach(card => {
+                card.style.display = card.textContent.toLowerCase().includes(value)
+                    ? "block"
+                    : "none";
+            });
+        });
+    </script>
+</body>
+
+</html>
