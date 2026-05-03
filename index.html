@@ -37,6 +37,9 @@
                         <a class="btn btn-outline-primary btn-sm ms-lg-2" href="./html/dns.html">DNS</a>
                     </li>
                     <li class="nav-item">
+                        <a class="btn btn-outline-secondary btn-sm ms-lg-1" href="./html/container.html">Container</a>
+                    </li>
+                    <li class="nav-item">
                         <button id="themeToggle" class="btn btn-primary btn-sm ms-lg-2">
                             Light Mode
                         </button>
@@ -86,7 +89,8 @@
                         <div class="card-body">
                             <span class="badge text-bg-primary mb-3">Online</span>
                             <h3 class="h5">pve01</h3>
-                            <p class="text-body-secondary mb-0">192.168.1.11</p>
+                            <p class="text-body-secondary mb-1">192.168.1.11</p>
+                            <p class="text-body-secondary small mb-0">PBS · Uptime Kuma · MariaDB01</p>
                         </div>
                     </div>
                 </div>
@@ -96,7 +100,8 @@
                         <div class="card-body">
                             <span class="badge text-bg-primary mb-3">Online</span>
                             <h3 class="h5">pve02</h3>
-                            <p class="text-body-secondary mb-0">192.168.1.12</p>
+                            <p class="text-body-secondary mb-1">192.168.1.12</p>
+                            <p class="text-body-secondary small mb-0">Monitoring · Web · Proxy · Git · MariaDB02</p>
                         </div>
                     </div>
                 </div>
@@ -106,7 +111,8 @@
                         <div class="card-body">
                             <span class="badge text-bg-primary mb-3">Online</span>
                             <h3 class="h5">pve03</h3>
-                            <p class="text-body-secondary mb-0">192.168.1.13</p>
+                            <p class="text-body-secondary mb-1">192.168.1.13</p>
+                            <p class="text-body-secondary small mb-0">DNS · NetBox · MariaDB03 · Proxy01 · DB Backup</p>
                         </div>
                     </div>
                 </div>
@@ -136,11 +142,16 @@
             </div>
 
             <div id="servicesList" class="row g-3">
+
+                <div class="col-12">
+                    <h4 class="h6 text-body-secondary text-uppercase fw-bold mb-0 mt-2">DNS</h4>
+                </div>
+
                 <div class="col-md-6 col-xl-4 service-card">
                     <div class="card h-100 border-0 shadow-sm">
                         <div class="card-body">
-                            <h3 class="h5">PBS</h3>
-                            <p class="text-body-secondary mb-0">192.168.1.19</p>
+                            <h3 class="h5">AdGuard</h3>
+                            <p class="text-body-secondary mb-0">192.168.1.5 · pve02 CT105</p>
                         </div>
                     </div>
                 </div>
@@ -148,8 +159,8 @@
                 <div class="col-md-6 col-xl-4 service-card">
                     <div class="card h-100 border-0 shadow-sm">
                         <div class="card-body">
-                            <h3 class="h5">PowerDNS</h3>
-                            <p class="text-body-secondary mb-0">192.168.1.9</p>
+                            <h3 class="h5">DNS02 / Unbound</h3>
+                            <p class="text-body-secondary mb-0">192.168.1.6 / 192.168.1.20 · pve03 CT104</p>
                         </div>
                     </div>
                 </div>
@@ -157,17 +168,159 @@
                 <div class="col-md-6 col-xl-4 service-card">
                     <div class="card h-100 border-0 shadow-sm">
                         <div class="card-body">
-                            <h3 class="h5">DNS02</h3>
-                            <p class="text-body-secondary mb-0">192.168.1.8</p>
+                            <h3 class="h5">PowerDNS (ns1)</h3>
+                            <p class="text-body-secondary mb-0">192.168.1.9 · pve03 CT106</p>
                         </div>
                     </div>
+                </div>
+
+                <div class="col-md-6 col-xl-4 service-card">
+                    <div class="card h-100 border-0 shadow-sm">
+                        <div class="card-body">
+                            <h3 class="h5">PowerDNS Secondary (ns2)</h3>
+                            <p class="text-body-secondary mb-0">192.168.1.8 · pve02 CT118</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-12">
+                    <h4 class="h6 text-body-secondary text-uppercase fw-bold mb-0 mt-2">Proxy / HA</h4>
                 </div>
 
                 <div class="col-md-6 col-xl-4 service-card">
                     <div class="card h-100 border-0 shadow-sm">
                         <div class="card-body">
                             <h3 class="h5">Reverse Proxy</h3>
-                            <p class="text-body-secondary mb-0">192.168.1.22</p>
+                            <p class="text-body-secondary mb-0">192.168.1.22 · pve02 CT102</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-md-6 col-xl-4 service-card">
+                    <div class="card h-100 border-0 shadow-sm">
+                        <div class="card-body">
+                            <h3 class="h5">proxy01 (HAProxy Master)</h3>
+                            <p class="text-body-secondary mb-0">192.168.1.23 · pve03 CT113</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-md-6 col-xl-4 service-card">
+                    <div class="card h-100 border-0 shadow-sm">
+                        <div class="card-body">
+                            <h3 class="h5">proxy02 (HAProxy Backup)</h3>
+                            <p class="text-body-secondary mb-0">192.168.1.24 · pve02 CT115</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-md-6 col-xl-4 service-card">
+                    <div class="card h-100 border-0 shadow-sm">
+                        <div class="card-body">
+                            <h3 class="h5">Keepalived VIP</h3>
+                            <p class="text-body-secondary mb-0">192.168.1.26 · pve02/pve03</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-md-6 col-xl-4 service-card">
+                    <div class="card h-100 border-0 shadow-sm">
+                        <div class="card-body">
+                            <h3 class="h5">HAProxy-WI</h3>
+                            <p class="text-body-secondary mb-0">192.168.1.28 · pve02 CT117</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-12">
+                    <h4 class="h6 text-body-secondary text-uppercase fw-bold mb-0 mt-2">Monitoring</h4>
+                </div>
+
+                <div class="col-md-6 col-xl-4 service-card">
+                    <div class="card h-100 border-0 shadow-sm">
+                        <div class="card-body">
+                            <h3 class="h5">Uptime Kuma</h3>
+                            <p class="text-body-secondary mb-0">192.168.1.4 · pve01 CT102</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-md-6 col-xl-4 service-card">
+                    <div class="card h-100 border-0 shadow-sm">
+                        <div class="card-body">
+                            <h3 class="h5">docker-Monitoring</h3>
+                            <p class="text-body-secondary mb-0">192.168.1.21 · pve02 CT100</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-md-6 col-xl-4 service-card">
+                    <div class="card h-100 border-0 shadow-sm">
+                        <div class="card-body">
+                            <h3 class="h5">Patchmon</h3>
+                            <p class="text-body-secondary mb-0">192.168.1.79 · pve03 CT101</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-md-6 col-xl-4 service-card">
+                    <div class="card h-100 border-0 shadow-sm">
+                        <div class="card-body">
+                            <h3 class="h5">Beszel</h3>
+                            <p class="text-body-secondary mb-0">192.168.1.170 · pve03 CT100</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-12">
+                    <h4 class="h6 text-body-secondary text-uppercase fw-bold mb-0 mt-2">Datenbanken</h4>
+                </div>
+
+                <div class="col-md-6 col-xl-4 service-card">
+                    <div class="card h-100 border-0 shadow-sm">
+                        <div class="card-body">
+                            <h3 class="h5">MariaDB01</h3>
+                            <p class="text-body-secondary mb-0">192.168.1.60 · pve01 CT105</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-md-6 col-xl-4 service-card">
+                    <div class="card h-100 border-0 shadow-sm">
+                        <div class="card-body">
+                            <h3 class="h5">MariaDB02</h3>
+                            <p class="text-body-secondary mb-0">192.168.1.61 · pve02 CT113</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-md-6 col-xl-4 service-card">
+                    <div class="card h-100 border-0 shadow-sm">
+                        <div class="card-body">
+                            <h3 class="h5">MariaDB03</h3>
+                            <p class="text-body-secondary mb-0">192.168.1.62 · pve03 CT102</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-md-6 col-xl-4 service-card">
+                    <div class="card h-100 border-0 shadow-sm">
+                        <div class="card-body">
+                            <h3 class="h5">DB Backup</h3>
+                            <p class="text-body-secondary mb-0">192.168.1.200 · pve03 CT110</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-12">
+                    <h4 class="h6 text-body-secondary text-uppercase fw-bold mb-0 mt-2">Management / Tools</h4>
+                </div>
+
+                <div class="col-md-6 col-xl-4 service-card">
+                    <div class="card h-100 border-0 shadow-sm">
+                        <div class="card-body">
+                            <h3 class="h5">PBS</h3>
+                            <p class="text-body-secondary mb-0">192.168.1.19 · pve01 CT100</p>
                         </div>
                     </div>
                 </div>
@@ -176,7 +329,7 @@
                     <div class="card h-100 border-0 shadow-sm">
                         <div class="card-body">
                             <h3 class="h5">NetBox</h3>
-                            <p class="text-body-secondary mb-0">192.168.1.25</p>
+                            <p class="text-body-secondary mb-0">192.168.1.25 · pve03 CT107</p>
                         </div>
                     </div>
                 </div>
@@ -185,7 +338,7 @@
                     <div class="card h-100 border-0 shadow-sm">
                         <div class="card-body">
                             <h3 class="h5">Forgejo / Git</h3>
-                            <p class="text-body-secondary mb-0">192.168.1.31</p>
+                            <p class="text-body-secondary mb-0">192.168.1.31 · pve02 CT103</p>
                         </div>
                     </div>
                 </div>
@@ -193,8 +346,17 @@
                 <div class="col-md-6 col-xl-4 service-card">
                     <div class="card h-100 border-0 shadow-sm">
                         <div class="card-body">
-                            <h3 class="h5">Docker01</h3>
-                            <p class="text-body-secondary mb-0">192.168.1.45</p>
+                            <h3 class="h5">Ansible / Semaphore</h3>
+                            <p class="text-body-secondary mb-0">192.168.1.44 · pve02 CT104</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-md-6 col-xl-4 service-card">
+                    <div class="card h-100 border-0 shadow-sm">
+                        <div class="card-body">
+                            <h3 class="h5">Proxmox Datacenter Manager</h3>
+                            <p class="text-body-secondary mb-0">192.168.1.92 · pve02 CT108</p>
                         </div>
                     </div>
                 </div>
@@ -203,40 +365,27 @@
                     <div class="card h-100 border-0 shadow-sm">
                         <div class="card-body">
                             <h3 class="h5">Omada</h3>
-                            <p class="text-body-secondary mb-0">192.168.1.189</p>
+                            <p class="text-body-secondary mb-0">192.168.1.189 · pve02 CT116</p>
                         </div>
                     </div>
                 </div>
 
-                <div class="col-md-6 col-xl-4 service-card">
-                    <div class="card h-100 border-0 shadow-sm">
-                        <div class="card-body">
-                            <h3 class="h5">Observium</h3>
-                            <p class="text-body-secondary mb-0">192.168.1.215</p>
-                        </div>
-                    </div>
-                </div>
             </div>
         </section>
 
         <section id="roadmap" class="mb-5">
             <div class="mb-3">
                 <h2 class="h3 fw-bold mb-1">Roadmap</h2>
-                <p class="text-body-secondary mb-0">Nächste sinnvolle Schritte für dein Homelab.</p>
+                <p class="text-body-secondary mb-0">
+                    Nächste sinnvolle Schritte zur Bereinigung, Dokumentation und Stabilisierung deines Homelabs.
+                </p>
             </div>
-            <section id="roadmap" class="mb-5">
-                <div class="mb-3">
-                    <h2 class="h3 fw-bold mb-1">Roadmap</h2>
-                    <p class="text-body-secondary mb-0">
-                        Nächste sinnvolle Schritte zur Bereinigung, Dokumentation und Stabilisierung deines Homelabs.
-                    </p>
-                </div>
                 <div class="list-group shadow-sm rounded-4 overflow-hidden">
 
                     <div class="list-group-item">
                         <div class="d-flex justify-content-between align-items-center mb-2">
                             <span class="fw-semibold">Phase 1: Kritische Basis bereinigen</span>
-                            <span class="badge text-bg-success">Fast fertig</span>
+                            <span class="badge text-bg-success">Erledigt</span>
                         </div>
                         <ul class="mb-0 small text-body-secondary">
                             <li>IP-Konflikt zwischen <code>nodjs-dev</code> und <code>mariadb02</code> behoben</li>
@@ -314,7 +463,7 @@
                     </div>
 
                 </div>
-            </section>
+        </section>
 
     </main>
 
