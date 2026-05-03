@@ -1,0 +1,428 @@
+<!doctype html>
+<html lang="de" data-bs-theme="dark">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Container-Übersicht - Markus Homelab</title>
+
+    <!-- Bootstrap 5 -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+
+    <style>
+        .page-header {
+            background: linear-gradient(135deg, #111827, #1f2937);
+            color: white;
+            border-radius: 1rem;
+        }
+
+        .table-card {
+            border: 0;
+            border-radius: 1rem;
+            overflow: hidden;
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.06);
+        }
+    </style>
+</head>
+
+<body>
+
+    <nav class="navbar navbar-expand-lg bg-body border-bottom sticky-top">
+        <div class="container">
+            <a class="navbar-brand fw-bold" href="../index.html">Markus Homelab</a>
+
+            <div class="ms-auto d-flex gap-2">
+                <a class="btn btn-outline-secondary btn-sm" href="../index.html">← Zurück</a>
+                <a class="btn btn-outline-primary btn-sm" href="./dns.html">DNS</a>
+                <button id="themeToggle" class="btn btn-primary btn-sm">Light Mode</button>
+            </div>
+        </div>
+    </nav>
+
+    <main class="container py-4 py-lg-5">
+
+        <section class="page-header p-4 p-lg-5 mb-4 shadow-sm">
+            <div class="d-flex flex-column flex-lg-row justify-content-between gap-3">
+                <div>
+                    <h1 class="fw-bold mb-2">Container-Übersicht</h1>
+                    <p class="mb-0 text-white-50">
+                        Alle LXC-Container nach Proxmox-Node · Stand: 01.05.2026
+                    </p>
+                </div>
+                <div class="text-lg-end">
+                    <span class="badge text-bg-success mb-2">192.168.1.0/24</span>
+                    <div class="small text-white-50">Nur LAN-IPs · keine Docker-Bridge-IPs</div>
+                </div>
+            </div>
+        </section>
+
+        <div class="mb-3">
+            <input id="searchInput" type="search" class="form-control" style="max-width:320px"
+                placeholder="Container suchen...">
+        </div>
+
+        <!-- PVE01 -->
+        <section class="mb-4">
+            <h2 class="h5 fw-bold mb-3">PVE01 · 192.168.1.11</h2>
+            <div class="card table-card">
+                <div class="table-responsive">
+                    <table class="table table-hover align-middle mb-0 container-table" aria-label="PVE01 Container">
+                        <thead class="table-light">
+                            <tr>
+                                <th>VMID</th>
+                                <th>Name</th>
+                                <th>Status</th>
+                                <th>LAN-IP</th>
+                                <th>Zweck</th>
+                                <th>Kritisch</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>100</td>
+                                <td>proxmox-backup-server</td>
+                                <td><span class="badge text-bg-success">running</span></td>
+                                <td>192.168.1.19</td>
+                                <td>Proxmox Backup Server</td>
+                                <td><span class="badge text-bg-danger">Ja</span></td>
+                            </tr>
+                            <tr>
+                                <td>102</td>
+                                <td>uptimekuma</td>
+                                <td><span class="badge text-bg-success">running</span></td>
+                                <td>192.168.1.4</td>
+                                <td>Uptime Monitoring</td>
+                                <td><span class="badge text-bg-danger">Ja</span></td>
+                            </tr>
+                            <tr>
+                                <td>105</td>
+                                <td>Mariadb01</td>
+                                <td><span class="badge text-bg-success">running</span></td>
+                                <td>192.168.1.60</td>
+                                <td>MariaDB Node 1</td>
+                                <td><span class="badge text-bg-danger">Ja</span></td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </section>
+
+        <!-- PVE02 -->
+        <section class="mb-4">
+            <h2 class="h5 fw-bold mb-3">PVE02 · 192.168.1.12</h2>
+            <div class="card table-card">
+                <div class="table-responsive">
+                    <table class="table table-hover align-middle mb-0 container-table" aria-label="PVE02 Container">
+                        <thead class="table-light">
+                            <tr>
+                                <th>VMID</th>
+                                <th>Name</th>
+                                <th>Status</th>
+                                <th>LAN-IP</th>
+                                <th>Zweck</th>
+                                <th>Kritisch</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>100</td>
+                                <td>docker-Monitoring</td>
+                                <td><span class="badge text-bg-success">running</span></td>
+                                <td>192.168.1.21</td>
+                                <td>Monitoring / Docker</td>
+                                <td><span class="badge text-bg-danger">Ja</span></td>
+                            </tr>
+                            <tr>
+                                <td>101</td>
+                                <td>web-home</td>
+                                <td><span class="badge text-bg-success">running</span></td>
+                                <td>192.168.1.30</td>
+                                <td>Interner Webserver</td>
+                                <td><span class="badge text-bg-warning">Mittel</span></td>
+                            </tr>
+                            <tr>
+                                <td>102</td>
+                                <td>proxy.lab.local</td>
+                                <td><span class="badge text-bg-success">running</span></td>
+                                <td>192.168.1.22</td>
+                                <td>Reverse Proxy</td>
+                                <td><span class="badge text-bg-danger">Ja</span></td>
+                            </tr>
+                            <tr>
+                                <td>103</td>
+                                <td>git.app.home</td>
+                                <td><span class="badge text-bg-success">running</span></td>
+                                <td>192.168.1.31</td>
+                                <td>Git-Service</td>
+                                <td><span class="badge text-bg-warning">Mittel</span></td>
+                            </tr>
+                            <tr>
+                                <td>104</td>
+                                <td>ansible</td>
+                                <td><span class="badge text-bg-success">running</span></td>
+                                <td>192.168.1.44</td>
+                                <td>Ansible / Semaphore</td>
+                                <td><span class="badge text-bg-warning">Mittel</span></td>
+                            </tr>
+                            <tr>
+                                <td>105</td>
+                                <td>adguard</td>
+                                <td><span class="badge text-bg-success">running</span></td>
+                                <td>192.168.1.5</td>
+                                <td>DNS Filter</td>
+                                <td><span class="badge text-bg-danger">Ja</span></td>
+                            </tr>
+                            <tr>
+                                <td>106</td>
+                                <td>web01</td>
+                                <td><span class="badge text-bg-secondary">stopped</span></td>
+                                <td>—</td>
+                                <td>Webserver</td>
+                                <td><span class="badge text-bg-light text-dark">Nein</span></td>
+                            </tr>
+                            <tr>
+                                <td>107</td>
+                                <td>nt-monitoring</td>
+                                <td><span class="badge text-bg-secondary">stopped</span></td>
+                                <td>—</td>
+                                <td>Monitoring-Test</td>
+                                <td><span class="badge text-bg-light text-dark">Nein</span></td>
+                            </tr>
+                            <tr>
+                                <td>108</td>
+                                <td>proxmox-datacenter-manager</td>
+                                <td><span class="badge text-bg-success">running</span></td>
+                                <td>192.168.1.92</td>
+                                <td>Proxmox Datacenter Manager</td>
+                                <td><span class="badge text-bg-warning">Mittel</span></td>
+                            </tr>
+                            <tr>
+                                <td>109</td>
+                                <td>de</td>
+                                <td><span class="badge text-bg-success">running</span></td>
+                                <td>192.168.1.91</td>
+                                <td>Zweck unklar</td>
+                                <td><span class="badge text-bg-light text-dark">Nein</span></td>
+                            </tr>
+                            <tr>
+                                <td>110</td>
+                                <td>nodjs-dev</td>
+                                <td><span class="badge text-bg-success">running</span></td>
+                                <td>192.168.1.81</td>
+                                <td>Node.js Dev</td>
+                                <td><span class="badge text-bg-light text-dark">Nein</span></td>
+                            </tr>
+                            <tr>
+                                <td>111</td>
+                                <td>termix</td>
+                                <td><span class="badge text-bg-success">running</span></td>
+                                <td>192.168.1.82</td>
+                                <td>Web-Terminal / SSH</td>
+                                <td><span class="badge text-bg-warning">Mittel</span></td>
+                            </tr>
+                            <tr>
+                                <td>113</td>
+                                <td>mariadb02</td>
+                                <td><span class="badge text-bg-success">running</span></td>
+                                <td>192.168.1.61</td>
+                                <td>MariaDB Node 2</td>
+                                <td><span class="badge text-bg-danger">Ja</span></td>
+                            </tr>
+                            <tr>
+                                <td>115</td>
+                                <td>proxy02</td>
+                                <td><span class="badge text-bg-success">running</span></td>
+                                <td>192.168.1.24</td>
+                                <td>HAProxy / Keepalived Backup</td>
+                                <td><span class="badge text-bg-danger">Ja</span></td>
+                            </tr>
+                            <tr>
+                                <td>116</td>
+                                <td>omada</td>
+                                <td><span class="badge text-bg-success">running</span></td>
+                                <td>192.168.1.189</td>
+                                <td>Omada Controller</td>
+                                <td><span class="badge text-bg-warning">Mittel</span></td>
+                            </tr>
+                            <tr>
+                                <td>117</td>
+                                <td>proxy-wi-01</td>
+                                <td><span class="badge text-bg-success">running</span></td>
+                                <td>192.168.1.28</td>
+                                <td>HAProxy-WI</td>
+                                <td><span class="badge text-bg-warning">Mittel</span></td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </section>
+
+        <!-- PVE03 -->
+        <section class="mb-4">
+            <h2 class="h5 fw-bold mb-3">PVE03 · 192.168.1.13</h2>
+            <div class="card table-card">
+                <div class="table-responsive">
+                    <table class="table table-hover align-middle mb-0 container-table" aria-label="PVE03 Container">
+                        <thead class="table-light">
+                            <tr>
+                                <th>VMID</th>
+                                <th>Name</th>
+                                <th>Status</th>
+                                <th>LAN-IP</th>
+                                <th>Zweck</th>
+                                <th>Kritisch</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>100</td>
+                                <td>beszel</td>
+                                <td><span class="badge text-bg-success">running</span></td>
+                                <td>192.168.1.170</td>
+                                <td>Beszel Monitoring</td>
+                                <td><span class="badge text-bg-warning">Mittel</span></td>
+                            </tr>
+                            <tr>
+                                <td>101</td>
+                                <td>patchmon</td>
+                                <td><span class="badge text-bg-success">running</span></td>
+                                <td>192.168.1.79</td>
+                                <td>Patch-/Update-Monitoring</td>
+                                <td><span class="badge text-bg-warning">Mittel</span></td>
+                            </tr>
+                            <tr>
+                                <td>102</td>
+                                <td>mariadb03</td>
+                                <td><span class="badge text-bg-success">running</span></td>
+                                <td>192.168.1.62</td>
+                                <td>MariaDB Node 3</td>
+                                <td><span class="badge text-bg-danger">Ja</span></td>
+                            </tr>
+                            <tr>
+                                <td>103</td>
+                                <td>admiral</td>
+                                <td><span class="badge text-bg-success">running</span></td>
+                                <td>192.168.1.69</td>
+                                <td>Web/App-Server</td>
+                                <td><span class="badge text-bg-warning">Mittel</span></td>
+                            </tr>
+                            <tr>
+                                <td>104</td>
+                                <td>dns01</td>
+                                <td><span class="badge text-bg-success">running</span></td>
+                                <td>192.168.1.6 / 192.168.1.20</td>
+                                <td>DNS02 + Unbound</td>
+                                <td><span class="badge text-bg-danger">Ja</span></td>
+                            </tr>
+                            <tr>
+                                <td>105</td>
+                                <td>mailarchive01</td>
+                                <td><span class="badge text-bg-success">running</span></td>
+                                <td>192.168.1.125</td>
+                                <td>Mailarchiv</td>
+                                <td><span class="badge text-bg-warning">Mittel</span></td>
+                            </tr>
+                            <tr>
+                                <td>106</td>
+                                <td>dns-auth-01</td>
+                                <td><span class="badge text-bg-success">running</span></td>
+                                <td>192.168.1.9</td>
+                                <td>PowerDNS</td>
+                                <td><span class="badge text-bg-danger">Ja</span></td>
+                            </tr>
+                            <tr>
+                                <td>109</td>
+                                <td>homeassistant</td>
+                                <td><span class="badge text-bg-success">running</span></td>
+                                <td>192.168.1.18</td>
+                                <td>Home Assistant</td>
+                                <td><span class="badge text-bg-warning">Mittel</span></td>
+                            </tr>
+                            <tr>
+                                <td>110</td>
+                                <td>db-backup01</td>
+                                <td><span class="badge text-bg-success">running</span></td>
+                                <td>192.168.1.200</td>
+                                <td>DB Backup Server</td>
+                                <td><span class="badge text-bg-danger">Ja</span></td>
+                            </tr>
+                            <tr>
+                                <td>111</td>
+                                <td>apps01</td>
+                                <td><span class="badge text-bg-secondary">stopped</span></td>
+                                <td>—</td>
+                                <td>App-Server</td>
+                                <td><span class="badge text-bg-light text-dark">Nein</span></td>
+                            </tr>
+                            <tr>
+                                <td>112</td>
+                                <td>test-db</td>
+                                <td><span class="badge text-bg-secondary">stopped</span></td>
+                                <td>—</td>
+                                <td>Test-Datenbank</td>
+                                <td><span class="badge text-bg-light text-dark">Nein</span></td>
+                            </tr>
+                            <tr>
+                                <td>113</td>
+                                <td>proxy01</td>
+                                <td><span class="badge text-bg-success">running</span></td>
+                                <td>192.168.1.23 / 192.168.1.26</td>
+                                <td>HAProxy Master + VIP</td>
+                                <td><span class="badge text-bg-danger">Ja</span></td>
+                            </tr>
+                            <tr>
+                                <td>115</td>
+                                <td>proxy-wi-dev</td>
+                                <td><span class="badge text-bg-secondary">stopped</span></td>
+                                <td>—</td>
+                                <td>HAProxy-WI Dev</td>
+                                <td><span class="badge text-bg-light text-dark">Nein</span></td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <footer class="border-top py-4">
+        <div class="container text-center text-body-secondary small">
+            Markus Homelab · Container-Übersicht · Stand: 01.05.2026
+        </div>
+    </footer>
+
+    <!-- Bootstrap JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+
+    <script>
+        const html = document.documentElement;
+        const themeToggle = document.getElementById("themeToggle");
+        const savedTheme = localStorage.getItem("theme");
+
+        if (savedTheme) {
+            html.setAttribute("data-bs-theme", savedTheme);
+            themeToggle.textContent = savedTheme === "dark" ? "Light Mode" : "Dark Mode";
+        }
+
+        themeToggle.addEventListener("click", () => {
+            const currentTheme = html.getAttribute("data-bs-theme");
+            const newTheme = currentTheme === "dark" ? "light" : "dark";
+            html.setAttribute("data-bs-theme", newTheme);
+            localStorage.setItem("theme", newTheme);
+            themeToggle.textContent = newTheme === "dark" ? "Light Mode" : "Dark Mode";
+        });
+
+        document.getElementById("searchInput").addEventListener("input", function () {
+            const value = this.value.toLowerCase();
+            document.querySelectorAll(".container-table tbody tr").forEach(row => {
+                row.style.display = row.textContent.toLowerCase().includes(value) ? "" : "none";
+            });
+        });
+    </script>
+
+</body>
+
+</html>
