@@ -1,0 +1,100 @@
+<!doctype html>
+<html lang="de">
+
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <title>Kommentare</title>
+    <style>
+        body {
+            font-family: Segoe UI, Arial, Helvetica, sans-serif;
+            margin: 24px;
+            color: #111
+        }
+
+        h1 {
+            font-size: 1.25rem
+        }
+
+        .comment {
+            border: 1px solid #ddd;
+            padding: 10px;
+            margin: 10px 0;
+            border-radius: 6px;
+            background: #fafafa
+        }
+
+        .meta {
+            font-size: 0.85rem;
+            color: #666;
+            margin-bottom: 6px
+        }
+
+        .frustrated {
+            border-left: 4px solid #d9534f;
+            padding-left: 8px
+        }
+
+        button {
+            padding: 6px 10px;
+            border-radius: 4px;
+            border: 1px solid #888;
+            background: #fff;
+            cursor: pointer
+        }
+
+        pre {
+            background: #111;
+            color: #eee;
+            padding: 12px;
+            overflow: auto
+        }
+    </style>
+</head>
+
+<body>
+    <main>
+        <h1>Frustrierte Kommentare</h1>
+        <p>Kurze, knapp gehaltene deutsche Kommentare — ausgedrückt mit Frust, aber respektvoll.</p>
+
+        <div class="comment frustrated">
+            <div class="meta">2026-05-03 09:12</div>
+            <div>Warum zur Hölle dauert das immer noch so lange? Ich habe doch alles getan.</div>
+        </div>
+
+        <div class="comment frustrated">
+            <div class="meta">2026-05-03 09:25</div>
+            <div>Noch ein Fehler. Echt jetzt? Schon wieder spät ins Bett.</div>
+        </div>
+
+        <div class="comment frustrated">
+            <div class="meta">2026-05-03 10:03</div>
+            <div>Ich habe das System neu gestartet, und trotzdem geht nichts. Super.</div>
+        </div>
+
+        <div class="comment frustrated">
+            <div class="meta">2026-05-03 10:30</div>
+            <div>Dokumentation lesen — ja, klar. Könnte jemand das bitte endlich richtig machen?</div>
+        </div>
+
+        <div class="controls">
+            <button id="copyAll">Alle Kommentare kopieren</button>
+        </div>
+
+        <pre id="allText">2026-05-03 09:12 — Warum zur Hölle dauert das immer noch so lange? Ich habe doch alles getan.
+2026-05-03 09:25 — Noch ein Fehler. Echt jetzt? Schon wieder spät ins Bett.
+2026-05-03 10:03 — Ich habe das System neu gestartet, und trotzdem geht nichts. Super.
+2026-05-03 10:30 — Dokumentation lesen — ja, klar. Könnte jemand das bitte endlich richtig machen?</pre>
+
+        <script>
+            document.getElementById('copyAll').addEventListener('click', function () {
+                const t = document.getElementById('allText').innerText;
+                if (navigator.clipboard) { navigator.clipboard.writeText(t).then(() => alert('Kommentare kopiert')); }
+                else { const ta = document.createElement('textarea'); ta.value = t; document.body.appendChild(ta); ta.select(); try { document.execCommand('copy'); alert('Kommentare kopiert'); } catch (e) { alert('Kopieren fehlgeschlagen'); } ta.remove(); }
+            });
+        </script>
+
+    </main>
+</body>
+
+</html>
